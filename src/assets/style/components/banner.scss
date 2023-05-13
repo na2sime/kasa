@@ -1,0 +1,27 @@
+@import '../main.scss';
+
+.banner {
+  position: relative;
+  @include flex;
+  border-radius: 25px;
+  height: 223px;
+  padding: 20px;
+  max-width: 95%;
+  margin: 43px auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../images/home_cover.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 550px) {
+   margin: 20px auto;
+    height: 120px;
+  }
+  p {
+    color: $first-color;
+    font-size: clamp(20px, 4vw, 40px);
+    font-weight: 500;
+  }
+  &.about {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../images/about_cover.png') !important;
+  }
+}
