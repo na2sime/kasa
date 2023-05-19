@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Collapse from "../components/Collapse";
 import Slider from "../components/Slideshow";
 import {useEffect, useState} from "react"
-import {Redirect, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function Accommodation() {
 
@@ -16,12 +16,14 @@ function Accommodation() {
 
     const idAccommodation = useParams('id').id;
     const dataCurrentAccommodation = data.filter(data => data.id === idAccommodation);
+    const navigate = useNavigate();
 
+    // If the id is not found in the data, redirect to the not found page
     useEffect(() => {
-        if(dataCurrentAccommodation.length === 0){
+        if (dataCurrentAccommodation.length === 0) {
             setRedirect(true);
         }
-    }, [dataCurrentAccommodation]);
+    }, [dataCurrentAccommodation.length]);
 
     useEffect(() => {
         const dataCurrentAccommodation = data.filter(data => data.id === idAccommodation);
@@ -34,8 +36,10 @@ function Accommodation() {
     const equipments = dataCurrentAccommodation[0].equipments;
 
     return (
-        redirect ? <Redirect to="/error"/> :
         <div className="accommodations">
+            {redirect && (
+                navigate('/about')
+            )}
             <Header/>
             <Slider imageSlider={imageSlider}/>
             <main className="accommodation">
