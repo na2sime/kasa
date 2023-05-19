@@ -1,17 +1,17 @@
 import Home from './pages/Home';
 import About from './pages/About';
-import Accomodation from './pages/Accomodation';
+import Accommodation from './pages/Accommodation';
 import NotFound from './pages/NotFound';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 const router = createBrowserRouter([
     {
-        path: "/home",
+        path: "/",
         element: <Home/>
     },
     {
-        path: "/accomodation/:id",
-        element: <Accomodation/>
+        path: "/accommodation/:id",
+        element: <Accommodation/>
     },
     {
         path: '/about',
